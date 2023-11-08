@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import itertools
 from tqdm import tqdm
 import console_color
-import time
 
 FILE_NAME = 'euglena-m1_2.txt'
 
