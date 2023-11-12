@@ -1,5 +1,5 @@
 [project]
-name = "eanalyzer_shinxe"
+name = "eanalyzer"
 version = "0.0.1"
 authors = [
   { name="shinxe", email="shinxe@xalyfi.com" },
