@@ -5,13 +5,11 @@ import itertools
 from tqdm import tqdm
 import console_color
 
-FILE_NAME = 'euglena-m1_2.txt'
-
 
 def detect_head(FILE_NAME):
     data_list = []
 
-    with open(f'./data/{FILE_NAME}', 'r+') as f:
+    with open(FILE_NAME, 'r+') as f:
         for line in f:
             line_list = line.split()
             line_list = [float(i) for i in line_list]
@@ -54,7 +52,7 @@ def detect_head(FILE_NAME):
             coordinates_combination_list[i][j].append(distance)
 
     # compaare
-    head_coorinates_list = []
+    head_coordinates_list = []
     for i in range(len(coordinates_combination_list)):
         distance = [row[2] for row in coordinates_combination_list[i]]
         distance_maximum = max(distance)
@@ -70,9 +68,17 @@ def detect_head(FILE_NAME):
         distance_second_list = coordinates_combination_list_r[i][distance_second_index]
 
         if (np.any(distance_maximum_list[0] == distance_second_list[0] or distance_maximum_list[0] == distance_second_list[1])):
-            head_coorinates_list.append(distance_maximum_list[0])
+            head_coordinates_list.append(distance_maximum_list[0])
         elif (np.any(distance_maximum_list[1] == distance_second_list[0] or distance_maximum_list[1] == distance_second_list[1])):
-            head_coorinates_list.append(distance_maximum_list[1])
+            head_coordinates_list.append(distance_maximum_list[1])
         else:
-            head_coorinates_list.append(list([(distance_maximum_list[0][0] + distance_maximum_list[1][0]) /
-                                        2, (distance_maximum_list[0][1] + distance_maximum_list[1][1])/2]))
+            head_coordinates_list.append(list([(distance_maximum_list[0][0] + distance_maximum_list[1][0]) /
+                                               2, (distance_maximum_list[0][1] + distance_maximum_list[1][1])/2]))
+
+    return head_coordinates_list
+
+
+if __name__ == '__main__':
+    FILE_NAME = './debug/data/euglena-m1_2.txt'
+    result = detect_head(FILE_NAME)
+    print(result)

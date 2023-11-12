@@ -19,3 +19,6 @@ dependencies = [
 [project.urls]
 "Homepage" = "https://github.com/shinxe/"
 "Bug Tracker" = "https://xalyfi.com/"
+
+[tool.setuptools.packages.find]
+exclude = ["debug"]

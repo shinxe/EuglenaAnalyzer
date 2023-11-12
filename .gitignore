@@ -1,9 +1,4 @@
-euglenatracker/pyvenv.cfg
-euglenatracker/Include
-euglenatracker/Lib
-euglenatracker/Scripts
-euglenatracker/share
-euglenatracker/__pycache__
-euglenatracker/.circleci
-euglenatracker/.github
-annotationsapp/
+eanalyzer_shinxe.egg-info
+build
+data
+__pycache__
