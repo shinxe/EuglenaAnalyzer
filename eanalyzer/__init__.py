@@ -1,1 +1,1 @@
-from eanalyzer.eanalyzer import *
+from eanalyzer import *
