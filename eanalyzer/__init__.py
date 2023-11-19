@@ -1,1 +1,1 @@
-from eanalyzer import *
+import eanalyzer.count_rotations
