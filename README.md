@@ -15,9 +15,9 @@ FILE_PATH = 'Here should be a file path of your YOLO segmantation tracking data 
 head_coodinates = eanalyzer.detect_head.detect_head(FILE_PATH)
 
 print(head_coodinates)
-#[123.405,678.901....]
+#[[x,y],[x,y],[x,y]]
 ```
-detect_head() will return a list data
+detect_head() will return a 2D array(float)
 </details>
 
 <details open>
