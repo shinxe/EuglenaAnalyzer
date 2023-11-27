@@ -3,7 +3,7 @@ from tqdm import tqdm
 import __main__
 
 
-def yoloformat(FOLDER_LOC, FILE_NAME):
+def cvtyoloformat(FOLDER_LOC, FILE_NAME):
     os.chdir(FOLDER_LOC)
 
     files_len = len(os.listdir("."))
