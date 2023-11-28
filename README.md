@@ -37,6 +37,22 @@ print(count)
 detect_head() will return a int value
 </details>
 
+<details open>
+<summary>CSV reformat</summary>
+**IMPORTANT NOTE** YOU HAVE TO MAKE 'output' folder under the labels folder
+```python
+import eanalyzer
+
+
+FILE_PATH = 'Here should be a file path of your YOLO segmantation tracking data txt'
+head_coodinates = eanalyzer.detect_head.detect_head(FILE_PATH)
+
+print(head_coodinates)
+#[[x,y],[x,y],[x,y]]
+```
+detect_head() will return a 2D array(float)
+</details>
+
 ## <div style='text-align:center'>License</div>
 
 

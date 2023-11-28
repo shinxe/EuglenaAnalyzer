@@ -5,7 +5,6 @@ import __main__
 
 def cvtyoloformat(FOLDER_LOC, FILE_NAME):
     os.chdir(FOLDER_LOC)
-
     files_len = len(os.listdir("."))
 
     last_list = []
@@ -29,12 +28,12 @@ def cvtyoloformat(FOLDER_LOC, FILE_NAME):
                 if (txt_2_list[j][len(txt_2_list[j])-1] == float(h) + 1.0):
                     tracking_result.append(txt_2_list[j])
 
-            with open(f'./output/{FILE_NAME}_{h+1}.txt', 'w') as f:
-                for line in tracking_result:
-                    f.write(str(line))
-                    f.write('\n')
+        with open(f'./output/{FILE_NAME}_{h+1}.txt', 'w') as f:
+            for line in tracking_result:
+                f.write(str(line))
+                f.write('\n')
 
 
 if __name__ == '__main__':
-    yoloformat('eanalyzer/labels', 'euglena-m1')
+    cvtyoloformat('eanalyzer/labels/', 'IMG_0038')
     print('Done')
