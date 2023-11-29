@@ -51,8 +51,9 @@ def cvtyoloformat(FOLDER_LOC, FILE_NAME, max_frame=None):
             for line in f:
                 line_list = line.split()
                 line_list = [float(line_ctx) for line_ctx in line_list]
-                with open(f'./output/{FILE_NAME}_{line_list[-1]}.txt', 'a') as f:
-                    f.write(str(line))
+                if (len(line_list) > 10):
+                    with open(f'./output/{FILE_NAME}_{line_list[-1]}.txt', 'a') as f:
+                        f.write(str(line))
 
 
 if __name__ == '__main__':
