@@ -11,28 +11,30 @@ def detect_head(FILE_NAME):
 
     with open(FILE_NAME, 'r+') as f:
         for line in f:
-            line_list = list(line)
-            print(line_list)
+            line_list = line.split()
             line_list = [float(i) for i in line_list]
             data_list.append(line_list)
-
-    print(f'{console_color.BOLD}{console_color.HEADER}Making a tuple list of coordinates{console_color.ENDC}')
+        print(
+            f'{console_color.BOLD}{console_color.HEADER}Making a tuple list of coordinates{console_color.ENDC}')
 
     coordinates = []
     for i in tqdm(range(len(data_list)), desc='Processing'):
         each_coordinates = []
         for j in range(1, len(data_list[i]) - 1, 2):
-            each_coordinates.append(list([data_list[i][j], data_list[i][j+1]]))
+            each_coordinates.append(
+                list([data_list[i][j], data_list[i][j+1]]))
         coordinates.append(each_coordinates)
     # print(coordinates)
 
-    print(f'{console_color.BOLD}{console_color.HEADER}Making a combintation list{console_color.ENDC}')
+    print(
+        f'{console_color.BOLD}{console_color.HEADER}Making a combintation list{console_color.ENDC}')
     coordinates_combination = []
     for coordinate in tqdm(coordinates):
         combination = list(itertools.combinations(coordinate, 2))
         coordinates_combination.append(combination)
 
-    print(f'{console_color.BOLD}{console_color.OKGREEN}Calculating distances{console_color.ENDC}')
+    print(
+        f'{console_color.BOLD}{console_color.OKGREEN}Calculating distances{console_color.ENDC}')
 
     coordinates_combination_list = []
     for i in range(len(coordinates_combination)):
