@@ -3,10 +3,13 @@ from tqdm import tqdm
 import __main__
 
 
-def cvtyoloformat(FOLDER_LOC, FILE_NAME, max_id):
+def cvtyoloformat(FOLDER_LOC, FILE_NAME, max_frame):
 
     os.chdir(FOLDER_LOC)
-    files_len = len(os.listdir("."))
+    if max_frame is None:
+        max_frame = len(os.listdir("."))
+    else:
+        max_frame = max_frame
 
     last_list = []
     with open(f'{FILE_NAME}_{files_len - 1}.txt', 'r+') as f:
@@ -14,11 +17,7 @@ def cvtyoloformat(FOLDER_LOC, FILE_NAME, max_id):
             line_list = line.split()
             line_list = [float(line_ctx) for line_ctx in line_list]
             last_list.append(line_list[-1])
-
-        if (max_id != None):
             max_id = int(max(last_list))
-        else:
-            max_id = max_id
 
     for h in tqdm(range(max_id)):
         tracking_result = []
