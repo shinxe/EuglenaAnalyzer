@@ -3,7 +3,8 @@ from tqdm import tqdm
 import __main__
 
 
-def cvtyoloformat(FOLDER_LOC, FILE_NAME):
+def cvtyoloformat(FOLDER_LOC, FILE_NAME, max_id=None):
+
     os.chdir(FOLDER_LOC)
     files_len = len(os.listdir("."))
 
@@ -13,7 +14,11 @@ def cvtyoloformat(FOLDER_LOC, FILE_NAME):
             line_list = line.split()
             line_list = [float(line_ctx) for line_ctx in line_list]
             last_list.append(line_list[-1])
-        max_id = int(max(last_list))
+
+        if (max_id != None):
+            max_id = int(max(last_list))
+        else:
+            max_id = max_id
 
     for h in tqdm(range(max_id)):
         tracking_result = []
