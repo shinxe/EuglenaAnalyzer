@@ -11,7 +11,8 @@ def detect_head(FILE_NAME):
 
     with open(FILE_NAME, 'r+') as f:
         for line in f:
-            line_list = line.split()
+            line_list = list(line)
+            print(line_list)
             line_list = [float(i) for i in line_list]
             data_list.append(line_list)
 
