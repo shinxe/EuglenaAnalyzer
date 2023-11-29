@@ -7,9 +7,9 @@ def cvtyoloformat(FOLDER_LOC, FILE_NAME, max_frame):
 
     os.chdir(FOLDER_LOC)
     if max_frame is None:
-        max_frame = len(os.listdir("."))
+        files_len = len(os.listdir("."))
     else:
-        max_frame = max_frame
+        files_len = max_frame
 
     last_list = []
     with open(f'{FILE_NAME}_{files_len - 1}.txt', 'r+') as f:
