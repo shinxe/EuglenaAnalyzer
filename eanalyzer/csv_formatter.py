@@ -3,7 +3,7 @@ from tqdm import tqdm
 import __main__
 
 
-def cvtyoloformat(FOLDER_LOC, FILE_NAME, max_frame):
+def cvtyoloformat_old(FOLDER_LOC, FILE_NAME, max_frame):
 
     os.chdir(FOLDER_LOC)
     if max_frame is None:
@@ -36,6 +36,23 @@ def cvtyoloformat(FOLDER_LOC, FILE_NAME, max_frame):
             for line in tracking_result:
                 f.write(str(line))
                 f.write('\n')
+
+
+def cvtyoloformat(FOLDER_LOC, FILE_NAME, max_frame=None):
+    os.chdir(FOLDER_LOC)
+    os.mkdir('output')
+    if max_frame is None:
+        files_len = len(os.listdir("."))
+    else:
+        files_len = max_frame
+
+    for l in tqdm(range(files_len)):
+        with open(f'{FILE_NAME}_{l+1}.txt', 'r') as f:
+            for line in f:
+                line_list = line.split()
+                line_list = [float(line_ctx) for line_ctx in line_list]
+                with open(f'./output/{FILE_NAME}_{line_list[-1]}.txt', 'a') as f:
+                    f.write(str(line))
 
 
 if __name__ == '__main__':
