@@ -47,13 +47,16 @@ def cvtyoloformat(FOLDER_LOC, FILE_NAME, max_frame=None):
         files_len = max_frame
 
     for l in tqdm(range(files_len)):
-        with open(f'{FILE_NAME}_{l+1}.txt', 'r') as f:
-            for line in f:
-                line_list = line.split()
-                line_list = [float(line_ctx) for line_ctx in line_list]
-                if (len(line_list) > 10):
-                    with open(f'./output/{FILE_NAME}_{line_list[-1]}.txt', 'a') as f:
-                        f.write(str(line))
+        if (os.path.isfile(f'{FILE_NAME}_{l+1}.txt') == True):
+            with open(f'{FILE_NAME}_{l+1}.txt', 'r') as f:
+                for line in f:
+                    line_list = line.split()
+                    line_list = [float(line_ctx) for line_ctx in line_list]
+                    if (len(line_list) > 10):
+                        with open(f'./output/{FILE_NAME}_{line_list[-1]}.txt', 'a') as f:
+                            f.write(str(line))
+        else:
+            continue
 
 
 if __name__ == '__main__':
