@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import itertools
 from tqdm import tqdm
-import console_color
+from . import console_color
 
 
 def detect_head(FILE_NAME):
